@@ -61,7 +61,7 @@
         Occasion *occasionToDelete = _occasionArray[indexPath.row];
         [_managedObjectContext deleteObject:occasionToDelete];
         [_appDelegate saveContext];
-//        [self refreshDataAndTable];
+        [self refreshDataAndTable];
     }];
     return @[deleteAction];
 }
@@ -102,21 +102,21 @@
     Drink *drink1 = (Drink *)[NSEntityDescription insertNewObjectForEntityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
     [drink1 setDrinkName:@"budlight"];
     [drink1 setDrinkABV:@"12"];
-    [drink1 setDrinkAmount:@12];
+    [drink1 setDrinkAmount:@"2"];
     [drink1 setDrinkDate: [NSDate date]];
     drink1.relationshipDrinkToOccassion = newoccasion;
 
     Drink *drink2 = (Drink *)[NSEntityDescription insertNewObjectForEntityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
     [drink2 setDrinkName:@"budlight"];
     [drink2 setDrinkABV:@"12"];
-    [drink2 setDrinkAmount:@12];
+    [drink2 setDrinkAmount:@"12"];
     [drink2 setDrinkDate: [NSDate date]];
     drink2.relationshipDrinkToOccassion = newoccasion;
       
     Drink *drink3 = (Drink *)[NSEntityDescription insertNewObjectForEntityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
       [drink3 setDrinkName:@"budlight"];
       [drink3 setDrinkABV:@"12"];
-      [drink3 setDrinkAmount:@12];
+      [drink3 setDrinkAmount:@"12"];
       [drink3 setDrinkDate: [NSDate date]];
       drink3.relationshipDrinkToOccassion = newoccasion2;
     

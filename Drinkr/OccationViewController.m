@@ -20,12 +20,61 @@
 @property(nonatomic,weak) IBOutlet UITextField   *occasionLat;
 @property(nonatomic,weak) IBOutlet UITextField   *occasionLon;
 @property(nonatomic,weak) IBOutlet UITableView   *drinkTableView;
+@property(nonatomic,strong)        NSArray       *drinkArray;
 
 @end
 
 @implementation OccationViewController
 
+#pragma mark - Reoccuring Methods
+
+-(void) refreshDataAndTable {
+    _drinkArray=[self fetchDrinks];
+    [_drinkTableView reloadData];
+}
+
+#pragma mark - Fetch Drink Method
+
+- (NSArray*)fetchDrinks {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"drinkName" ascending:true];
+    [fetchRequest setSortDescriptors:@[sortDescriptor]];
+    NSError *error;
+    NSArray *fetchResults = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    return fetchResults;
+}
+
 #pragma mark - TableView Methods
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _drinkArray.count;
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *dcell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    Drink *currentdrink = _drinkArray[indexPath.row ];
+    dcell.textLabel.text = currentdrink.drinkName;
+    dcell.detailTextLabel.text = currentdrink.drinkABV;
+    return dcell;
+}
+
+//the follow code (BOOL, void, and NSArray) is for swip to delete functionality
+-(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return true;
+}
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        NSLog(@"delete");
+        Drink *drinkToDelete = _drinkArray[indexPath.row];
+        [_managedObjectContext deleteObject:drinkToDelete];
+        [_appDelegate saveContext];
+    }];
+    return @[deleteAction];
+}
 
 
 #pragma mark - Reoccuring Methods
@@ -50,12 +99,18 @@
     [self saveAndPop];
 }
 
+#pragma mark - Drink Segue
 
-
-#pragma mark - Drink Table Methods
-
-
-
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    OccationViewController *destcontroller = [segue destinationViewController];
+    if ([[segue identifier] isEqualToString:@"editDrinkSegue"]) {
+        NSIndexPath *indexPath = [_drinkTableView indexPathForSelectedRow];
+        Drink *selectedDrink = _drinkArray[indexPath.row];
+        destcontroller.currentDrink = selectedDrink;
+    } else if ([[segue identifier] isEqualToString:@"addDrinkSegue"]) {
+        destcontroller.currentDrink=nil;
+    }
+}
 
 #pragma mark - Life Cycle Methods
 - (void)viewDidLoad {
@@ -77,6 +132,8 @@
         _occasionLat.text = _currentOccasion.occasionLat;
         _occasionLon.text = _currentOccasion.occasionLon;
         _occasionDate.date = _currentOccasion.occasionDate;
+        NSArray *drinkArray = [_currentOccasion.relationshipOccassionToDrink allObjects];
+        NSLog(@"drinks %lu", (unsigned long)drinkArray.count);
         }
     }
 

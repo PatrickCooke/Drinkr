@@ -14,11 +14,12 @@
 		4367173B1CC934490050006D /* Drinkr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 436717391CC934490050006D /* Drinkr.xcdatamodeld */; };
 		4367173D1CC934490050006D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4367173C1CC934490050006D /* Assets.xcassets */; };
 		436717401CC934490050006D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4367173E1CC934490050006D /* LaunchScreen.storyboard */; };
-		4367175C1CC94A370050006D /* Occasion+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717551CC94A370050006D /* Occasion+CoreDataProperties.m */; };
-		4367175D1CC94A370050006D /* Occasion.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717571CC94A370050006D /* Occasion.m */; };
-		4367175E1CC94A370050006D /* Drink+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717591CC94A370050006D /* Drink+CoreDataProperties.m */; };
-		4367175F1CC94A370050006D /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 4367175B1CC94A370050006D /* Drink.m */; };
 		436717621CC9541A0050006D /* OccationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717611CC9541A0050006D /* OccationViewController.m */; };
+		436717651CCA500D0050006D /* DrinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717641CCA500D0050006D /* DrinkViewController.m */; };
+		436717BF1CCA5ABE0050006D /* Occasion+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717B81CCA5ABE0050006D /* Occasion+CoreDataProperties.m */; };
+		436717C01CCA5ABE0050006D /* Occasion.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717BA1CCA5ABE0050006D /* Occasion.m */; };
+		436717C11CCA5ABE0050006D /* Drink+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717BC1CCA5ABE0050006D /* Drink+CoreDataProperties.m */; };
+		436717C21CCA5ABE0050006D /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717BE1CCA5ABE0050006D /* Drink.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,16 +34,19 @@
 		4367173C1CC934490050006D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4367173F1CC934490050006D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		436717411CC934490050006D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		436717541CC94A370050006D /* Occasion+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Occasion+CoreDataProperties.h"; sourceTree = "<group>"; };
-		436717551CC94A370050006D /* Occasion+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Occasion+CoreDataProperties.m"; sourceTree = "<group>"; };
-		436717561CC94A370050006D /* Occasion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Occasion.h; sourceTree = "<group>"; };
-		436717571CC94A370050006D /* Occasion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Occasion.m; sourceTree = "<group>"; };
-		436717581CC94A370050006D /* Drink+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Drink+CoreDataProperties.h"; sourceTree = "<group>"; };
-		436717591CC94A370050006D /* Drink+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Drink+CoreDataProperties.m"; sourceTree = "<group>"; };
-		4367175A1CC94A370050006D /* Drink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drink.h; sourceTree = "<group>"; };
-		4367175B1CC94A370050006D /* Drink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drink.m; sourceTree = "<group>"; };
 		436717601CC9541A0050006D /* OccationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OccationViewController.h; sourceTree = "<group>"; };
 		436717611CC9541A0050006D /* OccationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OccationViewController.m; sourceTree = "<group>"; };
+		436717631CCA500D0050006D /* DrinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkViewController.h; sourceTree = "<group>"; };
+		436717641CCA500D0050006D /* DrinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkViewController.m; sourceTree = "<group>"; };
+		436717721CCA58BB0050006D /* Drinkr 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Drinkr 2.xcdatamodel"; sourceTree = "<group>"; };
+		436717B71CCA5ABE0050006D /* Occasion+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Occasion+CoreDataProperties.h"; sourceTree = "<group>"; };
+		436717B81CCA5ABE0050006D /* Occasion+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Occasion+CoreDataProperties.m"; sourceTree = "<group>"; };
+		436717B91CCA5ABE0050006D /* Occasion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Occasion.h; sourceTree = "<group>"; };
+		436717BA1CCA5ABE0050006D /* Occasion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Occasion.m; sourceTree = "<group>"; };
+		436717BB1CCA5ABE0050006D /* Drink+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Drink+CoreDataProperties.h"; sourceTree = "<group>"; };
+		436717BC1CCA5ABE0050006D /* Drink+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Drink+CoreDataProperties.m"; sourceTree = "<group>"; };
+		436717BD1CCA5ABE0050006D /* Drink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drink.h; sourceTree = "<group>"; };
+		436717BE1CCA5ABE0050006D /* Drink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drink.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			children = (
 				436717601CC9541A0050006D /* OccationViewController.h */,
 				436717611CC9541A0050006D /* OccationViewController.m */,
+				436717631CCA500D0050006D /* DrinkViewController.h */,
+				436717641CCA500D0050006D /* DrinkViewController.m */,
 				436717301CC934490050006D /* AppDelegate.h */,
 				436717311CC934490050006D /* AppDelegate.m */,
 				436717331CC934490050006D /* ViewController.h */,
@@ -102,14 +108,14 @@
 		436717471CC936E30050006D /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				436717541CC94A370050006D /* Occasion+CoreDataProperties.h */,
-				436717551CC94A370050006D /* Occasion+CoreDataProperties.m */,
-				436717561CC94A370050006D /* Occasion.h */,
-				436717571CC94A370050006D /* Occasion.m */,
-				436717581CC94A370050006D /* Drink+CoreDataProperties.h */,
-				436717591CC94A370050006D /* Drink+CoreDataProperties.m */,
-				4367175A1CC94A370050006D /* Drink.h */,
-				4367175B1CC94A370050006D /* Drink.m */,
+				436717B71CCA5ABE0050006D /* Occasion+CoreDataProperties.h */,
+				436717B81CCA5ABE0050006D /* Occasion+CoreDataProperties.m */,
+				436717B91CCA5ABE0050006D /* Occasion.h */,
+				436717BA1CCA5ABE0050006D /* Occasion.m */,
+				436717BB1CCA5ABE0050006D /* Drink+CoreDataProperties.h */,
+				436717BC1CCA5ABE0050006D /* Drink+CoreDataProperties.m */,
+				436717BD1CCA5ABE0050006D /* Drink.h */,
+				436717BE1CCA5ABE0050006D /* Drink.m */,
 				436717391CC934490050006D /* Drinkr.xcdatamodeld */,
 			);
 			name = Data;
@@ -187,14 +193,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				436717351CC934490050006D /* ViewController.m in Sources */,
+				436717651CCA500D0050006D /* DrinkViewController.m in Sources */,
 				4367173B1CC934490050006D /* Drinkr.xcdatamodeld in Sources */,
-				4367175F1CC94A370050006D /* Drink.m in Sources */,
-				4367175C1CC94A370050006D /* Occasion+CoreDataProperties.m in Sources */,
 				436717621CC9541A0050006D /* OccationViewController.m in Sources */,
+				436717C01CCA5ABE0050006D /* Occasion.m in Sources */,
+				436717BF1CCA5ABE0050006D /* Occasion+CoreDataProperties.m in Sources */,
+				436717C21CCA5ABE0050006D /* Drink.m in Sources */,
+				436717C11CCA5ABE0050006D /* Drink+CoreDataProperties.m in Sources */,
 				436717321CC934490050006D /* AppDelegate.m in Sources */,
-				4367175D1CC94A370050006D /* Occasion.m in Sources */,
 				4367172F1CC934490050006D /* main.m in Sources */,
-				4367175E1CC94A370050006D /* Drink+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +359,7 @@
 		436717391CC934490050006D /* Drinkr.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				436717721CCA58BB0050006D /* Drinkr 2.xcdatamodel */,
 				4367173A1CC934490050006D /* Drinkr.xcdatamodel */,
 			);
 			currentVersion = 4367173A1CC934490050006D /* Drinkr.xcdatamodel */;
