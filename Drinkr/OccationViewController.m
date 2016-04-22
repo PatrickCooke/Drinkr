@@ -38,7 +38,7 @@
     Drink *currentdrink = _drinkArray[indexPath.row];
     dcell.textLabel.text = currentdrink.drinkName;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"hh:mm MM/DD/YY";
+    formatter.dateFormat = @"EEEE hh:mm MM/dd/YY";
     dcell.detailTextLabel.text = [formatter stringFromDate:currentdrink.drinkDate];
     return dcell;
 }
@@ -55,13 +55,18 @@
         Drink *drinkToDelete = _drinkArray[indexPath.row];
         [_managedObjectContext deleteObject:drinkToDelete];
         [_appDelegate saveContext];
-        [_drinkTableView reloadData];
+        [self refreshDrinkTable];
     }];
     return @[deleteAction];
 }
 
 
 #pragma mark - Reoccuring Methods
+
+-(void)refreshDrinkTable {
+    _drinkArray = [_currentOccasion.relationshipOccassionToDrink allObjects];
+    [_drinkTableView reloadData];
+}
 
 -(void)saveAndPop {
     [_appDelegate saveContext];
@@ -73,6 +78,7 @@
     [_managedObjectContext deleteObject:_currentOccasion];
     [self saveAndPop];
 }
+
 
 -(IBAction)saveButtonPressed:(id)sender {
     NSLog(@"Save Occasion");
@@ -121,8 +127,7 @@
         _occasionLat.text = _currentOccasion.occasionLat;
         _occasionLon.text = _currentOccasion.occasionLon;
         _occasionDate.date = _currentOccasion.occasionDate;
-        _drinkArray = [_currentOccasion.relationshipOccassionToDrink allObjects];
-        [_drinkTableView reloadData];
+        [self refreshDrinkTable];
     }
 }
 
