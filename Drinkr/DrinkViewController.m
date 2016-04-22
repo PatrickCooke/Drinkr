@@ -30,18 +30,20 @@
 }
 
 -(IBAction)deleteButtonPressed:(id)sender {
-    NSLog(@"Delete");
     [_managedObjectContext deleteObject:_currentDrink];
     [self saveAndPop];
+    NSLog(@"notsaved");
+    
 }
 
 -(IBAction)saveButtonPressed:(id)sender {
-    NSLog(@"save");
+    
     _currentDrink.drinkName = _drinkNameTextField.text;
     _currentDrink.drinkAmount = _drinkAmountTextField.text;
     _currentDrink.drinkABV = _drinkABVTextField.text;
     _currentDrink.drinkDate = _drinkDatePicker.date;
     [self saveAndPop];
+    NSLog(@"saved");
 }
 
 
@@ -61,11 +63,15 @@
         _drinkAmountTextField.text = @"";
         _drinkABVTextField.text = @"";
         _drinkDatePicker.date = [NSDate date];
+        _currentDrink.relationshipDrinkToOccassion = _currentOccasion;
+        [_drinkNameTextField becomeFirstResponder];
+        NSLog(@"new drink");
     } else {
         _drinkNameTextField.text = _currentDrink.drinkName;
         _drinkAmountTextField.text = _currentDrink.drinkAmount;
         _drinkABVTextField.text = _currentDrink.drinkABV;
         _drinkDatePicker.date = _currentDrink.drinkDate;
+        NSLog(@"edit drink");
     }
 }
 

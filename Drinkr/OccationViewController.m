@@ -37,7 +37,7 @@
     UITableViewCell *dcell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Drink *currentdrink = _drinkArray[indexPath.row];
     dcell.textLabel.text = currentdrink.drinkName;
-    dcell.detailTextLabel.text = currentdrink.drinkABV;
+    dcell.detailTextLabel.text = currentdrink.drinkAmount;
     return dcell;
 }
 
@@ -49,7 +49,7 @@
 }
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        NSLog(@"delete");
+        NSLog(@"deleted via slide");
         Drink *drinkToDelete = _drinkArray[indexPath.row];
         [_managedObjectContext deleteObject:drinkToDelete];
         [_appDelegate saveContext];
@@ -66,13 +66,13 @@
 }
 #pragma mark - Interactivity Methods
 -(IBAction)deleteButtonPressed:(id)sender {
-    NSLog(@"Delete");
+    NSLog(@"Delete Occasion");
     [_managedObjectContext deleteObject:_currentOccasion];
     [self saveAndPop];
 }
 
 -(IBAction)saveButtonPressed:(id)sender {
-    NSLog(@"save");
+    NSLog(@"Save Occasion");
     _currentOccasion.occasionName = _occasionName.text;
     _currentOccasion.occasionLat = _occasionLat.text;
     _currentOccasion.occasionLon = _occasionLon.text;
@@ -84,12 +84,15 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DrinkViewController *destcontroller = [segue destinationViewController];
+    destcontroller.currentOccasion = _currentOccasion;
     if ([[segue identifier] isEqualToString:@"editDrinkSegue"]) {
         NSIndexPath *indexPath = [_drinkTableView indexPathForSelectedRow];
         Drink *selectedDrink = _drinkArray[indexPath.row];
         destcontroller.currentDrink = selectedDrink;
+        NSLog(@"pressed edit");
     } else if ([[segue identifier] isEqualToString:@"addDrinkSegue"]) {
         destcontroller.currentDrink=nil;
+        NSLog(@"pressed new");
     }
 }
 
@@ -98,6 +101,7 @@
     [super viewDidLoad];
     _appDelegate = [[UIApplication sharedApplication] delegate];
     _managedObjectContext = _appDelegate.managedObjectContext;
+    [_drinkTableView reloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -108,6 +112,7 @@
         _occasionLat.text = @"";
         _occasionLon.text = @"";
         _occasionDate.date = [NSDate date];
+        [_occasionName becomeFirstResponder];
     } else {
         _occasionName.text = _currentOccasion.occasionName;
         _occasionLat.text = _currentOccasion.occasionLat;

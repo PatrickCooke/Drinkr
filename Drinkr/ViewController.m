@@ -97,7 +97,7 @@
      Occasion *newoccasion3 = (Occasion *) [NSEntityDescription insertNewObjectForEntityForName:@"Occasion" inManagedObjectContext:_managedObjectContext];
     [newoccasion3 setOccasionDate:[NSDate date]];
     [newoccasion3 setOccasionLon:@"42.591832"];
-    [newoccasion3 setOccasionName: @"Ted's HouseParty"];
+    [newoccasion3 setOccasionName: @"Getting to know you Party"];
     [newoccasion3 setOccasionLat:@"-83.323451"];
     Drink *drink1 = (Drink *)[NSEntityDescription insertNewObjectForEntityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
     [drink1 setDrinkName:@"budlight"];
@@ -107,14 +107,14 @@
     drink1.relationshipDrinkToOccassion = newoccasion;
 
     Drink *drink2 = (Drink *)[NSEntityDescription insertNewObjectForEntityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
-    [drink2 setDrinkName:@"budlight"];
+    [drink2 setDrinkName:@"coors"];
     [drink2 setDrinkABV:@"12"];
     [drink2 setDrinkAmount:@"12"];
     [drink2 setDrinkDate: [NSDate date]];
     drink2.relationshipDrinkToOccassion = newoccasion;
       
     Drink *drink3 = (Drink *)[NSEntityDescription insertNewObjectForEntityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
-      [drink3 setDrinkName:@"budlight"];
+      [drink3 setDrinkName:@"bud"];
       [drink3 setDrinkABV:@"12"];
       [drink3 setDrinkAmount:@"12"];
       [drink3 setDrinkDate: [NSDate date]];
@@ -149,7 +149,7 @@
     _appDelegate = [[UIApplication sharedApplication] delegate];
     _managedObjectContext = _appDelegate.managedObjectContext;
 //    [self tempAddRecords];
-    NSLog(@"Occasions %li", (unsigned long)_occasionArray.count);
+    NSLog(@"Occasions %li",_occasionArray.count);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

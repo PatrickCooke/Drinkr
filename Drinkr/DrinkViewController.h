@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Occasion.h"
 #import "Drink.h"
 
 @interface DrinkViewController : UIViewController
 
+@property (nonatomic,strong) Occasion *currentOccasion;
 @property (nonatomic,strong) Drink *currentDrink;
 
 @end
