@@ -11,7 +11,6 @@
 
 @interface DrinkViewController : UIViewController
 
-@property (nonatomic,strong) Occasion *currentOccasion;
 @property (nonatomic,strong) Drink *currentDrink;
 
 @end

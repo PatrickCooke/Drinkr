@@ -7,6 +7,7 @@
 //
 
 #import "OccationViewController.h"
+#import "DrinkViewController.h"
 #import "AppDelegate.h"
 #import "Occasion.h"
 #import "Drink.h"
@@ -26,26 +27,6 @@
 
 @implementation OccationViewController
 
-#pragma mark - Reoccuring Methods
-
--(void) refreshDataAndTable {
-    _drinkArray=[self fetchDrinks];
-    [_drinkTableView reloadData];
-}
-
-#pragma mark - Fetch Drink Method
-
-- (NSArray*)fetchDrinks {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Drink" inManagedObjectContext:_managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"drinkName" ascending:true];
-    [fetchRequest setSortDescriptors:@[sortDescriptor]];
-    NSError *error;
-    NSArray *fetchResults = [_managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    return fetchResults;
-}
-
 #pragma mark - TableView Methods
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,7 +35,7 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *dcell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    Drink *currentdrink = _drinkArray[indexPath.row ];
+    Drink *currentdrink = _drinkArray[indexPath.row];
     dcell.textLabel.text = currentdrink.drinkName;
     dcell.detailTextLabel.text = currentdrink.drinkABV;
     return dcell;
@@ -102,7 +83,7 @@
 #pragma mark - Drink Segue
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    OccationViewController *destcontroller = [segue destinationViewController];
+    DrinkViewController *destcontroller = [segue destinationViewController];
     if ([[segue identifier] isEqualToString:@"editDrinkSegue"]) {
         NSIndexPath *indexPath = [_drinkTableView indexPathForSelectedRow];
         Drink *selectedDrink = _drinkArray[indexPath.row];
@@ -132,10 +113,10 @@
         _occasionLat.text = _currentOccasion.occasionLat;
         _occasionLon.text = _currentOccasion.occasionLon;
         _occasionDate.date = _currentOccasion.occasionDate;
-        NSArray *drinkArray = [_currentOccasion.relationshipOccassionToDrink allObjects];
-        NSLog(@"drinks %lu", (unsigned long)drinkArray.count);
-        }
+        _drinkArray = [_currentOccasion.relationshipOccassionToDrink allObjects];
+        [_drinkTableView reloadData];
     }
+}
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];

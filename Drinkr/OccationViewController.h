@@ -12,6 +12,5 @@
 @interface OccationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic,strong) Occasion *currentOccasion;
-@property (nonatomic,strong) Drink *currentDrink;
 
 @end

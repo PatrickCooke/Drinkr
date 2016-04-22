@@ -150,11 +150,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A02-wb-gqP">
+                                <rect key="frame" x="20" y="335" width="560" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="cc6-pW-IOx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMx-R1-plM">
+                                <rect key="frame" x="118" y="302" width="462" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="R2P-kY-awz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-hm-3ob">
+                                <rect key="frame" x="515" y="331" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="54R-KE-LIT"/>
+                                </constraints>
+                                <state key="normal" title="add drink"/>
+                                <connections>
+                                    <segue destination="7ff-rH-SPA" kind="show" identifier="NewDrinkSegue" id="9qH-4G-LXj"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aiF-EI-mS1">
                                 <rect key="frame" x="0.0" y="369" width="599" height="231"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dcell" textLabel="hLc-aC-Yh1" detailTextLabel="ogp-Pb-K7M" style="IBUITableViewCellStyleSubtitle" id="bMG-oW-Siy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="hLc-aC-Yh1" detailTextLabel="ogp-Pb-K7M" style="IBUITableViewCellStyleSubtitle" id="bMG-oW-Siy">
                                         <rect key="frame" x="0.0" y="28" width="599" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bMG-oW-Siy" id="NKh-fC-Dgh">
@@ -183,37 +210,10 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="JcH-Ey-dgB" id="bn8-7F-W7w"/>
-                                    <outlet property="delegate" destination="JcH-Ey-dgB" id="zbf-4m-AMC"/>
+                                    <outlet property="dataSource" destination="JcH-Ey-dgB" id="AsN-Cm-8by"/>
+                                    <outlet property="delegate" destination="JcH-Ey-dgB" id="bZb-yS-Oll"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A02-wb-gqP">
-                                <rect key="frame" x="20" y="335" width="560" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="cc6-pW-IOx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jMx-R1-plM">
-                                <rect key="frame" x="118" y="302" width="462" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="R2P-kY-awz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh6-hm-3ob">
-                                <rect key="frame" x="515" y="331" width="65" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="54R-KE-LIT"/>
-                                </constraints>
-                                <state key="normal" title="add drink"/>
-                                <connections>
-                                    <segue destination="7ff-rH-SPA" kind="show" identifier="NewDrinkSegue" id="9qH-4G-LXj"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -288,7 +288,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="drinkTableView" destination="aiF-EI-mS1" id="dBN-fa-jvM"/>
+                        <outlet property="drinkTableView" destination="aiF-EI-mS1" id="AqO-V6-FNh"/>
                         <outlet property="occasionDate" destination="es3-hK-wmj" id="Elt-pF-hdI"/>
                         <outlet property="occasionLat" destination="bpZ-Vv-mf9" id="gUY-8i-ztT"/>
                         <outlet property="occasionLon" destination="jMx-R1-plM" id="DSc-d7-dbH"/>
