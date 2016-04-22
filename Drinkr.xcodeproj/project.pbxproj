@@ -20,6 +20,7 @@
 		436717DE1CCA79530050006D /* Drink.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717D81CCA79530050006D /* Drink.m */; };
 		436717DF1CCA79530050006D /* Occasion+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717DA1CCA79530050006D /* Occasion+CoreDataProperties.m */; };
 		436717E01CCA79530050006D /* Occasion.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717DC1CCA79530050006D /* Occasion.m */; };
+		436717E31CCA808E0050006D /* OccuranceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 436717E21CCA808E0050006D /* OccuranceTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		436717DA1CCA79530050006D /* Occasion+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Occasion+CoreDataProperties.m"; sourceTree = "<group>"; };
 		436717DB1CCA79530050006D /* Occasion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Occasion.h; sourceTree = "<group>"; };
 		436717DC1CCA79530050006D /* Occasion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Occasion.m; sourceTree = "<group>"; };
+		436717E11CCA808E0050006D /* OccuranceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OccuranceTableViewCell.h; sourceTree = "<group>"; };
+		436717E21CCA808E0050006D /* OccuranceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OccuranceTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				436717331CC934490050006D /* ViewController.h */,
 				436717341CC934490050006D /* ViewController.m */,
 				436717361CC934490050006D /* Main.storyboard */,
+				436717E11CCA808E0050006D /* OccuranceTableViewCell.h */,
+				436717E21CCA808E0050006D /* OccuranceTableViewCell.m */,
 				4367173C1CC934490050006D /* Assets.xcassets */,
 				4367173E1CC934490050006D /* LaunchScreen.storyboard */,
 				436717411CC934490050006D /* Info.plist */,
@@ -194,6 +199,7 @@
 			files = (
 				436717351CC934490050006D /* ViewController.m in Sources */,
 				436717651CCA500D0050006D /* DrinkViewController.m in Sources */,
+				436717E31CCA808E0050006D /* OccuranceTableViewCell.m in Sources */,
 				436717E01CCA79530050006D /* Occasion.m in Sources */,
 				436717DE1CCA79530050006D /* Drink.m in Sources */,
 				436717DF1CCA79530050006D /* Occasion+CoreDataProperties.m in Sources */,

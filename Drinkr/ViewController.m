@@ -11,6 +11,7 @@
 #import "Drink.h"
 #import "Occasion.h"
 #import "OccationViewController.h"
+#import "OccuranceTableViewCell.h"
 
 @interface ViewController ()
 
@@ -40,13 +41,20 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    OccuranceTableViewCell *cell = (OccuranceTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"OccCell" forIndexPath:indexPath];
     Occasion *currentOccasion = _occasionArray[indexPath.row ];
-    cell.textLabel.text = currentOccasion.occasionName;
+    //cell.textLabel.text = currentOccasion.occasionName;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"MMMM d, yyyy";
-    cell.detailTextLabel.text = [formatter stringFromDate:currentOccasion.occasionDate];
+    cell.dateLabel.text = [formatter stringFromDate:currentOccasion.occasionDate];
+    cell.nameLabel.text = currentOccasion.occasionName;
+    cell.drinksLabel.text = [NSString stringWithFormat:@"%li",[[currentOccasion.relationshipOccassionToDrink allObjects] count]];
+    
+    //cell.detailTextLabel.text = [formatter stringFromDate:currentOccasion.occasionDate];
     return cell;
+}
+-(double)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100.0;
 }
 
 //the follow code (BOOL, void, and NSArray) is for swip to delete functionality

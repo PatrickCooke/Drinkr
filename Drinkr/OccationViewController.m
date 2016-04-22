@@ -37,7 +37,9 @@
     UITableViewCell *dcell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Drink *currentdrink = _drinkArray[indexPath.row];
     dcell.textLabel.text = currentdrink.drinkName;
-    dcell.detailTextLabel.text = currentdrink.drinkAmount;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"hh:mm MM/DD/YY";
+    dcell.detailTextLabel.text = [formatter stringFromDate:currentdrink.drinkDate];
     return dcell;
 }
 
@@ -53,6 +55,7 @@
         Drink *drinkToDelete = _drinkArray[indexPath.row];
         [_managedObjectContext deleteObject:drinkToDelete];
         [_appDelegate saveContext];
+        [_drinkTableView reloadData];
     }];
     return @[deleteAction];
 }
