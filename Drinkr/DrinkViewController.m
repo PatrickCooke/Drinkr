@@ -46,6 +46,22 @@
     NSLog(@"saved");
 }
 
+#pragma mark Validation Methods
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField == _drinkAmountTextField || textField == _drinkABVTextField) {
+        NSCharacterSet *ssnCharSet = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+        NSString *filteredstring = [[string componentsSeparatedByCharactersInSet: ssnCharSet] componentsJoinedByString:@""];
+        return [string isEqualToString:filteredstring];
+    }
+    return true;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return true;
+}
+
 
 #pragma mark Life Cycle Methods
 

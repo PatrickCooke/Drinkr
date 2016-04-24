@@ -73,12 +73,20 @@
     [self.navigationController popViewControllerAnimated:true];
 }
 #pragma mark - Interactivity Methods
+
 -(IBAction)deleteButtonPressed:(id)sender {
     NSLog(@"Delete Occasion");
     [_managedObjectContext deleteObject:_currentOccasion];
     [self saveAndPop];
 }
 
+-(IBAction)addButtonPressed:(id)sender {
+    _currentOccasion.occasionName = _occasionName.text;
+    _currentOccasion.occasionLat = _occasionLat.text;
+    _currentOccasion.occasionLon = _occasionLon.text;
+    _currentOccasion.occasionDate = _occasionDate.date;
+    [_appDelegate saveContext];
+}
 
 -(IBAction)saveButtonPressed:(id)sender {
     NSLog(@"Save Occasion");
@@ -105,7 +113,15 @@
     }
 }
 
+#pragma mark - Textfield Delegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return true;
+}
+
 #pragma mark - Life Cycle Methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _appDelegate = [[UIApplication sharedApplication] delegate];

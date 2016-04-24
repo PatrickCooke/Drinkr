@@ -33,8 +33,6 @@
     [_ocassionTableView reloadData];
      }
 
-
-
 #pragma mark - Table View Methods
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _occasionArray.count;
@@ -48,7 +46,7 @@
     formatter.dateFormat = @"MMMM d, yyyy";
     cell.dateLabel.text = [formatter stringFromDate:currentOccasion.occasionDate];
     cell.nameLabel.text = currentOccasion.occasionName;
-    cell.drinksLabel.text = [NSString stringWithFormat:@"%li",[[currentOccasion.relationshipOccassionToDrink allObjects] count]];
+    cell.drinksLabel.text = [NSString stringWithFormat:@"%lu",[[currentOccasion.relationshipOccassionToDrink allObjects] count]];
     
     //cell.detailTextLabel.text = [formatter stringFromDate:currentOccasion.occasionDate];
     return cell;

@@ -10,7 +10,8 @@
 #import "Occasion.h"
 #import "Drink.h"
 
-@interface DrinkViewController : UIViewController
+
+@interface DrinkViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic,strong) Occasion *currentOccasion;
 @property (nonatomic,strong) Drink *currentDrink;

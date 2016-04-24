@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Drink.h"
 
-@interface OccationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface OccationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic,strong) Occasion *currentOccasion;
 
